@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NoteCard from "../components/Notespage/NoteCard/NoteCard";
 import { createNotes, getNotes } from "../Redux/notes/note.actions";
 import { BsPlusLg } from "react-icons/bs";
-import TipTap from "./TipTap";
+import TipTap from "../TipTap";
 import {
   Modal,
   ModalOverlay,
@@ -89,7 +89,7 @@ export default function NotesPage() {
 
                 <Input value={title}m placeholder="Please enter title" onChange={(e)=>setTitle(e.target.value)}></Input>
                 {/* <Textarea mt={8} value={body} placeholder={'Please enter description'} onChange={(e)=>setBody(e.target.value)}></Textarea> */}
-                <TipTap onEditorContentSave={handleEditorContentSave}/>
+                <TipTap content="" onEditorContentSave={handleEditorContentSave}/>
               
             </ModalBody>
 

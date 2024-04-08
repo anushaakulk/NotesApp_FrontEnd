@@ -3,8 +3,7 @@ import StarterKit from "@tiptap/starter-kit";
 const extensions = [
   StarterKit
 ]
-const content =``
-const Tiptap = ({onEditorContentSave})=>{
+const Tiptap = ({content, onEditorContentSave})=>{
   const editor = useEditor({
     extensions,
     content
@@ -181,7 +180,7 @@ const Tiptap = ({onEditorContentSave})=>{
       </button>
       </div>
       <div className="border border-gray-500 border-t-0">
-        <EditorContent editor={editor} className="max-h-96 overflow-y-scll"/>
+        <EditorContent editor={editor} content={content} className="max-h-96 overflow-y-scll"/>
       </div>
       <button onClick={handleEditorContent}>Save</button>
     </div>

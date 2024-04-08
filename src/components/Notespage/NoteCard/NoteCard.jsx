@@ -1,3 +1,5 @@
+import parse from 'html-react-parser';
+import Tiptap from '../../../TipTap';
 import {
   Button,
   Card,
@@ -41,13 +43,16 @@ export default function NoteCard({ title, body, user, _id }) {
     onClose()
 
   }
+  const handleEditorContentSave = (html)=>{
+    setBody(html)
+  }
 
   return (
     <Card backgroundImage={`url(${notebg})`}>
       <CardBody>
         <VStack>
           <Heading>{title}</Heading>
-          <Text>{body}</Text>
+          <Text>{parse(body)}</Text>
 
           <Flex gap={2}>
             <>
@@ -70,12 +75,13 @@ export default function NoteCard({ title, body, user, _id }) {
                       placeholder="Please enter title"
                       onChange={(e) => setTitle(e.target.value)}
                     ></Input>
-                    <Textarea
+                    {/* <Textarea
                       mt={8}
                       value={tempBody}
                       placeholder={"Please enter description"}
                       onChange={(e) => setBody(e.target.value)}
-                    ></Textarea>
+                    ></Textarea> */}
+                    <Tiptap content={body} onEditorContentSave={handleEditorContentSave}/>
                   </ModalBody>
 
                   <ModalFooter>
