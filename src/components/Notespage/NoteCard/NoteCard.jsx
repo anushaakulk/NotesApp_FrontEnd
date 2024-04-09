@@ -48,25 +48,24 @@ export default function NoteCard({ title, body, user, _id }) {
   }
 
   return (
-    <Card backgroundImage={`url(${notebg})`}>
+    <Card backgroundColor={"lightblue"}>
       <CardBody>
         <VStack>
           <Heading>{title}</Heading>
-          <Text>{parse(body)}</Text>
 
           <Flex gap={2}>
             <>
-              <Button onClick={onOpen}>Update</Button>
+              <Button onClick={onOpen}>View/Update</Button>
 
               <Modal
                 initialFocusRef={initialRef}
                 finalFocusRef={finalRef}
                 isOpen={isOpen}
-                onClose={onClose}
+                onClose={onClose} size='full'
               >
                 <ModalOverlay />
                 <ModalContent>
-                  <ModalHeader>Update Note</ModalHeader>
+                  <ModalHeader>View / Update Note</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody pb={6}>
                     <Input

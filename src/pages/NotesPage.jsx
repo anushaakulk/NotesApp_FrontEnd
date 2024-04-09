@@ -41,6 +41,7 @@ export default function NotesPage() {
   }
   const handleEditorContentSave = (html)=>{
     setBody(html)
+    createNote()
   }
 
   return (
@@ -65,7 +66,7 @@ export default function NotesPage() {
           w={"80px"}
           h={"80px"}
           borderRadius={50}
-          bg={"yellowgreen"}
+          bg={"lightblue"}
           bottom={0}
           right={0}
           onClick={onOpen}
@@ -79,7 +80,7 @@ export default function NotesPage() {
           initialFocusRef={initialRef}
           finalFocusRef={finalRef}
           isOpen={isOpen}
-          onClose={onClose}
+          onClose={onClose} size='full'
         >
           <ModalOverlay />
           <ModalContent>
@@ -87,16 +88,16 @@ export default function NotesPage() {
             <ModalCloseButton />
             <ModalBody pb={6}>
 
-                <Input value={title}m placeholder="Please enter title" onChange={(e)=>setTitle(e.target.value)}></Input>
+                <Input value={title} placeholder="Please enter title" onChange={(e)=>setTitle(e.target.value)}></Input>
                 {/* <Textarea mt={8} value={body} placeholder={'Please enter description'} onChange={(e)=>setBody(e.target.value)}></Textarea> */}
-                <TipTap content="" onEditorContentSave={handleEditorContentSave}/>
+                <div className="border"><TipTap content="" onEditorContentSave={handleEditorContentSave}/></div>
               
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={createNote}>
+              {/* <Button colorScheme="blue" mr={3} onClick={createNote}>
                 Create
-              </Button>
+              </Button> */}
               <Button onClick={onClose}>Cancel</Button>
             </ModalFooter>
           </ModalContent>

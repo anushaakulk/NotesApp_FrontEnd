@@ -31,62 +31,28 @@ export default function Navbar() {
   const nav = useNavigate()
   return (
     <>
-      <Box zIndex={1000} position={"fixed"} top={0} w={"100%"}  boxShadow={"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"}  bg={"yellowgreen"} px={4}>
+      <Box zIndex={1000} position={"fixed"} top={0} w={"100%"}  boxShadow={"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;"}  bg={"grey"} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box fontWeight={"bold"} cursor={"pointer"} onClick={()=>{
             nav("/")
-          }} color="white">Notes App</Box>
+          }} color="black">Notes App</Box>
 
           <Flex alignItems={'center'}>
             <Stack alignItems={"center"} direction={'row'} spacing={7}>
-                <Button display={auth==true?"block":"none"}  bg={"yellow"}m color={"green"} onClick={()=>{
+                <Button display={auth==true?"block":"none"}  bg={"lightblue"}m color={"black"} onClick={()=>{
                     nav("/notes")
                 }}>All Notes</Button>
-                <Button display={auth==true?"none":"block"}  bg={"yellow"}m color={"green"} onClick={()=>{
+                <Button display={auth==true?"none":"block"}  bg={"lightblue"}m color={"black"} onClick={()=>{
                     nav("/register")
                 }}>Sign up</Button>
-                <Button display={auth==true?"none":"block"} bg={"yellow"}m color={"green"} onClick={()=>{
+                <Button display={auth==true?"none":"block"} bg={"lightblue"}m color={"black"} onClick={()=>{
                     nav("/login")
                 }}>Login</Button>
-              <Button bg={"yellow"} onClick={toggleColorMode}>
+              <Button bg={"lightblue"} onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
 
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  border="2px solid yellow"
-                  padding={2}
-                  rounded={'full'}
-                  variant={'link'}
-                  cursor={'pointer'}
-                  minW={0}>
-                  <Avatar
-                    size={'sm'}
-                    src={'https://api.dicebear.com/8.x/lorelei/svg'}
-                  />
-                </MenuButton>
-                <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://api.dicebear.com/8.x/lorelei/svg'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem onClick={()=>{
-                    dispatch({type:LOGOUT})
-                  }}>Logout</MenuItem>
-                </MenuList>
-              </Menu>
+              
             </Stack>
           </Flex>
         </Flex>
