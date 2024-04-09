@@ -26,7 +26,7 @@ const Tiptap = ({content, onEditorContentSave})=>{
     onEditorContentSave(html)
   }
   return (
-    <div className="m-8">
+    <div className="mt-8">
       <div className="w-full flex flex-wrap bg-gray-600 p-3 gap-3 text-white">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
