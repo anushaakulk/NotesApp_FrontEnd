@@ -89,7 +89,7 @@ export default function NotesPage() {
 
                 <Input value={title} placeholder="Please enter title" onChange={(e)=>setTitle(e.target.value)}></Input>
                 {/* <Textarea mt={8} value={body} placeholder={'Please enter description'} onChange={(e)=>setBody(e.target.value)}></Textarea> */}
-                <Box className="border"><TipTap content="" onEditorContentSave={handleEditorContentSave}/></Box>
+                <Box><TipTap content="" onEditorContentSave={handleEditorContentSave}/></Box>
               
             </ModalBody>
 
